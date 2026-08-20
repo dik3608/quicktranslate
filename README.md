@@ -56,6 +56,25 @@ xattr -dr com.apple.quarantine /Applications/QuickTranslate.app
 
 **Важно:** после включения Accessibility и Screen Recording приложение нужно перезапустить (иконка в строке меню → **Выход**, затем запустить заново).
 
+
+### 4. Разрешить браузеру выполнять JavaScript (для `⌘8`)
+
+Без этого шага `⌘8` вместо перевода покажет сообщение **«В Safari выключен JavaScript из событий Apple»**. Это отдельная настройка самого браузера, она не переносится вместе с приложением — включается один раз на каждом компьютере.
+
+**Safari:**
+
+1. **Safari → Settings** (`⌘,`) → вкладка **Advanced** («Дополнения»).
+2. Внизу поставить галочку **Show features for web developers** («Показывать функции для веб-разработчиков»). В старых версиях пункт называется **Show Develop menu in menu bar**.
+3. В строке меню появится меню **Develop** («Разработка») → поставить галочку **Allow JavaScript from Apple Events** («Разрешить JavaScript из событий Apple»). Safari попросит пароль от Mac — это нормально.
+4. Перезапустить Safari.
+
+**Chrome / Edge / Brave / Opera / Vivaldi / Яндекс:**
+
+Меню **View → Developer → Allow JavaScript from Apple Events** («Вид → Разработчикам → Разрешить JavaScript из событий Apple»).
+
+> После включения `⌘8` начинает работать сразу. Если до этого был включён автоперевод страниц — он приостанавливается на 30 минут после ошибки, так что проще перезапустить QuickTranslate (иконка в строке меню → **Выход** → запустить снова).
+
+
 ---
 
 ## Как пользоваться
@@ -103,7 +122,9 @@ xattr -dr com.apple.quarantine /Applications/QuickTranslate.app
 
 **Скриншот-перевод или OCR не работает** — нет доступа в **Screen Recording**. Выдай и перезапусти приложение.
 
-**Перевод страницы (`⌘8`) не срабатывает** — нужно разрешение в **Automation** для твоего браузера. При первом нажатии macOS сам спросит — согласись.
+**`⌘8` пишет «В Safari выключен JavaScript из событий Apple»** — не выполнен шаг 4 установки: `Safari → Settings → Advanced → Show features for web developers`, затем меню `Develop → Allow JavaScript from Apple Events`. После этого перезапусти Safari.
+
+**Перевод страницы (`⌘8`) не срабатывает вообще** — нужно разрешение в **Automation** для твоего браузера. При первом нажатии macOS сам спросит — согласись. Проверить: `System Settings → Privacy & Security → Automation → QuickTranslate`.
 
 **Пустой ответ или ошибка сети** — проверь интернет. Если пишет про `rate limit` — подожди минуту и повтори.
 
